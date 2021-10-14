@@ -39,7 +39,6 @@ class CameraFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentCameraBinding.inflate(layoutInflater)
 
         binding.btnCamera.setOnClickListener {
             cameraPermission()
