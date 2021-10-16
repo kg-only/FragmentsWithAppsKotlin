@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import com.example.fragmentswithappskotlin.camera.CameraFragment
 import com.example.fragmentswithappskotlin.databinding.ActivityMainBinding
 import com.example.fragmentswithappskotlin.dice.DiceFragment
+import com.example.fragmentswithappskotlin.dice.ranF
+import com.example.fragmentswithappskotlin.dice.ranS
 import com.example.fragmentswithappskotlin.weather.WeatherFragment
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -30,29 +35,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-//        bottom_navigation.setOnItemSelectedListener { item ->
-//            when (item.itemId) {
-//
-//                R.id.calculator -> {
-//                    val intent = Intent(this, CalculatorActivity::class.java)
-//                    startActivity(intent)
-//                    true
-//                }
-//                R.id.camera -> {
-//                    val intent = Intent(this, CameraOpenActivity::class.java)
-//                    startActivity(intent)
-//                    true
-//                }
-//                R.id.weather -> {
-//                    val intent = Intent(this, DiceActivity::class.java)
-//                    startActivity(intent)
-//                    true
-//                }
-//                else -> false
-//
-//            }
-
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
