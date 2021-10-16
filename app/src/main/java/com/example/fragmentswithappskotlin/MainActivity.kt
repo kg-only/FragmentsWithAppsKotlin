@@ -1,6 +1,5 @@
 package com.example.fragmentswithappskotlin
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -25,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        replaceFragment(diceFragment)
 
+        replaceFragment(diceFragment)
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.dice_menu -> replaceFragment(diceFragment)
