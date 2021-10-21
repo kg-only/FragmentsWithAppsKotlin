@@ -10,17 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
+        android:textColor="@color/black"
+        android:textSize="50sp"
         android:layout_marginHorizontal="100dp"/>
     <TextView
         android:id="@+id/clouds_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-/>
+        android:layout_above="@+id/lon_textView"
+        android:layout_marginBottom="10dp"/>
     <TextView
         android:id="@+id/lon_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/clouds_textView"
+        android:layout_above="@+id/lat_textView"
         android:layout_marginBottom="10dp"/>
     <TextView
         android:id="@+id/lat_textView"

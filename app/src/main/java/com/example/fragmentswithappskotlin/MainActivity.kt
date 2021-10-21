@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private val diceFragment = DiceFragment()
     private val cameraFragment = CameraFragment()
     private val weatherFragment = WeatherFragment()
-    private val api:RetrofitService = RetrofitClient.getClient()!!.create(RetrofitService::class.java)
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,24 +39,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        val key = getString(R.string.weatherApiKey)
-        api.getWeatherList(key).enqueue(object: Callback<WeatherDataClass> {
-            override fun onResponse(
-                call: Call<WeatherDataClass>,
-                response: Response<WeatherDataClass>
-            ) {
-              if(response.isSuccessful && response.body() != null){
-                  val data = response.body()!!
 
-              }
-            }
-
-            override fun onFailure(call: Call<WeatherDataClass>, t: Throwable) {
-               Log.e("Error","Error getting weather", t)
-                Toast.makeText(this@MainActivity, "Something wrong, ${t.message}", Toast.LENGTH_LONG).show()
-            }
-
-        })
 
     }
     private fun replaceFragment(fragment: Fragment) {

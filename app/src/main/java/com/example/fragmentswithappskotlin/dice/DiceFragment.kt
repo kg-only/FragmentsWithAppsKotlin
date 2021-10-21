@@ -15,11 +15,11 @@ private var ranS = 0
 
 class DiceFragment : Fragment() {
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-        ranF = savedInstanceState?.getInt("ranF",1)!!
-        ranS = savedInstanceState.getInt("ranS",1)
-    }
+//    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+//        super.onViewStateRestored(savedInstanceState)
+//        ranF = savedInstanceState?.getInt("ranF",1)!!
+//        ranS = savedInstanceState.getInt("ranS",1)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
