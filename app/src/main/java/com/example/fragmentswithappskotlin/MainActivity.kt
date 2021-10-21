@@ -11,7 +11,7 @@ import com.example.fragmentswithappskotlin.dice.DiceFragment
 import com.example.fragmentswithappskotlin.weather.WeatherFragment
 import com.example.fragmentswithappskotlin.weather.retrofit.RetrofitClient
 import com.example.fragmentswithappskotlin.weather.retrofit.RetrofitService
-import com.example.weather.models.WeatherDataClass
+import com.example.fragmentswithappskotlin.weather.models.WeatherDataClass
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             ) {
               if(response.isSuccessful && response.body() != null){
                   val data = response.body()!!
+
               }
             }
 
