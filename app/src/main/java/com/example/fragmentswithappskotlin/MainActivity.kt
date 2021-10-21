@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             ) {
               if(response.isSuccessful && response.body() != null){
                   val data = response.body()!!
-                  data.main.temp
               }
             }
 
