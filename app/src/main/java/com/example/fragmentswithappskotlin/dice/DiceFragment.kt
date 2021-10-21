@@ -10,16 +10,21 @@ import com.example.fragmentswithappskotlin.databinding.FragmentDiceBinding
 import java.util.*
 
 private lateinit var binding: FragmentDiceBinding
-var drawableResource = 0
-var drawableResource2 = 0
+private var ranF = 0
+private var ranS = 0
 
 class DiceFragment : Fragment() {
+
+//    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+//        super.onViewStateRestored(savedInstanceState)
+//        ranF = savedInstanceState?.getInt("ranF",1)!!
+//        ranS = savedInstanceState.getInt("ranS",1)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View {
         binding = FragmentDiceBinding.inflate(inflater, container, false)
         return binding.root
@@ -27,42 +32,51 @@ class DiceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ranF = Random().nextInt(6) + 1
+        ranS = Random().nextInt(6) + 1
 
         binding.btnThrow.setOnClickListener {
             binding.btnThrow.text = getString(R.string.lets_roll)
-
-            val x = Random().nextInt(6) + 1
-            val y = Random().nextInt(6) + 1
-            drawableResource = when (x) {
-                1 -> R.drawable.dice_1
-                2 -> R.drawable.dice_2
-                3 -> R.drawable.dice_3
-                4 -> R.drawable.dice_4
-                5 -> R.drawable.dice_5
-                else -> R.drawable.dice_6
-            }
-            drawableResource2 = when (y) {
-                1 -> R.drawable.dice_1
-                2 -> R.drawable.dice_2
-                3 -> R.drawable.dice_3
-                4 -> R.drawable.dice_4
-                5 -> R.drawable.dice_5
-                else -> R.drawable.dice_6
-            }
-            binding.imageView.setImageResource(drawableResource)
-            binding.imageView2.setImageResource(drawableResource2)
-
+            rollDice(ranF, ranS)
+        }
+        fun onViewStateRestored(savedInstanceState: Bundle?) {
+            super.onViewStateRestored(savedInstanceState)
+            ranF = savedInstanceState!!.getInt("ranF",1000)
+            ranS = savedInstanceState.getInt("ranS",1000)
+        }
+        fun onSaveInstanceState(outState: Bundle) {
+            super.onSaveInstanceState(outState)
+            outState.putInt("ranF", ranF)
+            outState.putInt("ranS", ranS)
         }
     }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
+
+    private fun rollDice(x: Int, y: Int) {
+        val drawableResource = when (x) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        val drawableResource2 = when (y) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
         binding.imageView.setImageResource(drawableResource)
         binding.imageView2.setImageResource(drawableResource2)
     }
+
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt("drawableResource", drawableResource)
-        outState.putInt("drawableResource2", drawableResource2)
+        outState.putInt("ranF", ranF)
+        outState.putInt("ranS", ranS)
     }
 }
