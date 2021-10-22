@@ -18,4 +18,6 @@
     <string name="calculator_item_menu">Calculator</string>
     <string name="camera_item_menu">Camera</string>
     <string name="weather_item_menu">Weather</string>
+    <string name="show_the_weather">Show the weather</string>
+    <string name="city">Введите город</string>
 </resources>
